@@ -1,0 +1,12 @@
+{
+    "editor.formatOnSave": true,
+    "solargraph.autoformat": true,
+    "solargraph.diagnostics": true,
+    "solargraph.formatting": true,
+    "ruby.lint": {
+    "rubocop": true
+    },
+    "ruby.codeCompletion": "rcodetools",
+    "ruby.format": "rubocop",
+    "ruby.intellisense": "rubyLocate"
+  }
