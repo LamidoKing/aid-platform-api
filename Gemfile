@@ -22,16 +22,22 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+#Json Web Token
+gem 'jwt'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
-  gem 'solargraph', group: :development
-  gem 'rubocop', group: :development
+gem 'solargraph', group: :development
+gem 'rubocop', group: :development
+
+gem 'rusky', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3', '~> 1.4'
+  gem 'simplecov', require: false
 end
 
 group :development do
