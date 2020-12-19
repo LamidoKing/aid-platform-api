@@ -88,6 +88,12 @@ Metrics/CyclomaticComplexity:
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods.
 Metrics/MethodLength:
   Max: 13
+  Exclude:
+    - 'db/migrate/*.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'db/schema.rb'
 
 # Offense count: 1
 # Configuration parameters: IgnoredMethods.
@@ -99,18 +105,22 @@ Metrics/PerceivedComplexity:
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: nested, compact
 Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
   Exclude:
     - 'test/channels/application_cable/connection_test.rb'
     - 'test/test_helper.rb'
+    - 'app/channels/application_cable/*.rb'
+    - 'config/application.rb'
 
 # Offense count: 3
 Style/Documentation:
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
+    - 'config/application.rb'
     - 'app/mailers/application_mailer.rb'
     - 'app/models/application_record.rb'
-    - 'config/application.rb'
+    - 'db/migrate/*.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.
@@ -158,6 +168,8 @@ Style/StringLiterals:
     - 'config/puma.rb'
     - 'config/spring.rb'
     - 'test/channels/application_cable/connection_test.rb'
+    - 'db/migrate'
+    - 'db/schema.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -165,6 +177,15 @@ Style/StringLiterals:
 # SupportedStyles: percent, brackets
 Style/SymbolArray:
   EnforcedStyle: brackets
+
+Style/WordArray:
+    Exclude:
+      - 'db/schema.rb'
+
+Style/NumericLiterals:
+    Exclude:
+      - 'db/schema.rb'
+
 
 # Offense count: 2
 # Cop supports --auto-correct.

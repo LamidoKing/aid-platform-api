@@ -1,0 +1,4 @@
+pre-commit:
+  - rubocop
+pre-push:
+  - bundle exec rails test
