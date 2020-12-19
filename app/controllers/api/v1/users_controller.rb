@@ -1,3 +1,4 @@
+# User CRUD Controller
 class Api::V1::UsersController < ApplicationController
   before_action :authorized, only: [:update, :destroy]
   before_action :set_user, only: [:update, :destroy]
@@ -59,6 +60,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def reponse(object, status = :ok)
-    render json: object, except: [:password_digest,], status: status
+    render json: object, except: [:password_digest], status: status
   end
 end

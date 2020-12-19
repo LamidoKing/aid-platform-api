@@ -14,7 +14,7 @@ gem 'puma', '~> 4.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 
-gem "active_model_serializers"
+gem 'active_model_serializers'
 
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
@@ -27,7 +27,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'cloudinary'
 
-#Json Web Token
+# Json Web Token
 gem 'jwt'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible

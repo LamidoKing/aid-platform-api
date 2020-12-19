@@ -1,9 +1,14 @@
+# User Authorization
 module Authorization
   def current_user
-    if decoded_token
-      userId = decoded_token[0]['user_id']
-      @current_user = User.find_by(id: userId)
-    end
+    return unless decoded_token
+
+    user_id = decoded_token[0]['user_id']
+    @current_user = begin
+                      User.find_by(id: user_id)
+                    rescue StandardError
+                      ActiveRecord::RecordNotFound
+                    end
   end
 
   protected
@@ -13,10 +18,10 @@ module Authorization
   end
 
   def decoded_token
-    if auth_header
-      token = auth_header.split(' ')[1]
-      JsonWebToken.decode(token)
-    end
+    return unless auth_header
+
+    token = auth_header.split(' ')[1]
+    JsonWebToken.decode(token)
   end
 
   def logged_in?

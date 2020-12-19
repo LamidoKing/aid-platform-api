@@ -1,3 +1,4 @@
+# Error Handler
 module ExceptionHandler
   extend ActiveSupport::Concern
   class DecodeError < StandardError; end

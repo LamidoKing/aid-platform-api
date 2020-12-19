@@ -1,3 +1,4 @@
+# Authenthicate User
 class Authentication
   def initialize(user)
     @email = user[:email]
