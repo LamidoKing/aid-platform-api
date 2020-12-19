@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.delete_all
+ActiveStorage::Attachment.all.each(&:purge)
 
 user1 = User.create(
   first_name: 'lamido',
@@ -15,6 +16,7 @@ user1 = User.create(
   status: 'offline',
   password: 'lamidotijjani'
 )
+user1.govnt_id.attach(io: File.open(Rails.root.join('seedFiles/govnt_id.pdf')), filename: 'govnt_id.pdf', content_type: 'application/pdf')
 puts(user1.first_name)
 
 user2 = User.create(
@@ -24,6 +26,7 @@ user2 = User.create(
   status: 'offline',
   password: 'alex'
 )
+user2.govnt_id.attach(io: File.open(Rails.root.join('seedFiles/govnt_id.png')), filename: 'govnt_id.png', content_type: 'image/png')
 puts(user2.first_name)
 
 user3 = User.create(
@@ -33,6 +36,7 @@ user3 = User.create(
   status: 'offline',
   password: 'dan'
 )
+user3.govnt_id.attach(io: File.open(Rails.root.join('seedFiles/govnt_id.jpg')), filename: 'govnt_id.jpg', content_type: 'image/jpg')
 puts(user3.first_name)
 
 user4 = User.create(
@@ -42,4 +46,5 @@ user4 = User.create(
   status: 'offline',
   password: 'alex'
 )
+user4.govnt_id.attach(io: File.open(Rails.root.join('seedFiles/govnt_id.png')), filename: 'govnt_id.png', content_type: 'image/png')
 puts(user4.first_name)

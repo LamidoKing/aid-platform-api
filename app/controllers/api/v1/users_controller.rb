@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   before_action :authorized, only: [:update, :destroy]
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:update, :destroy]
 
   # GET /api/v1/users
   def index
@@ -11,6 +11,7 @@ class Api::V1::UsersController < ApplicationController
 
   # GET /api/v1/users/1
   def show
+    @user = User.find(params[:id])
     reponse(@user)
   end
 
@@ -21,7 +22,7 @@ class Api::V1::UsersController < ApplicationController
 
     if @user.save
       user_data = {
-        message: "User creaed Successfull",
+        message: 'User creaed Successfull',
         token: JsonWebToken.encode(user_id: @user.id),
         user: @user
       }
@@ -54,10 +55,10 @@ class Api::V1::UsersController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def user_params
-    params.fetch(:user, {}).permit(:first_name, :last_name, :email, :status, :password)
+    params.fetch(:user, {}).permit(:first_name, :last_name, :email, :status, :password, :govnt_id)
   end
 
   def reponse(object, status = :ok)
-    render json: object, except: [:password_digest], status: status
+    render json: object, except: [:password_digest,], status: status
   end
 end
