@@ -21,9 +21,6 @@ jobs:
           POSTGRES_PASSWORD: lamido_aid_platform_api
     steps:
       - checkout
-      - run:
-          name: Which bundler?
-          command: bundle -v
             # Restore bundle cache
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
       - restore_cache:
