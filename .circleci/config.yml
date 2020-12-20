@@ -16,9 +16,9 @@ jobs:
           RAILS_ENV: test
       - image: circleci/postgres:11 # database image
         environment: # environment variables for database, it is kind of obvious but it is important that they match with your test config in database.yml
-          POSTGRES_USER: [lamido]
-          POSTGRES_DB: [aid_platform_api]
-          POSTGRES_PASSWORD: [lamido_aid_platform_api]
+          POSTGRES_USER: lamido
+          POSTGRES_DB: aid_platform_api
+          POSTGRES_PASSWORD: lamido_aid_platform_api
     steps:
       - checkout
       - run:
