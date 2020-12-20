@@ -28,14 +28,14 @@ jobs:
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
       - restore_cache:
           keys:
-            - [aid-platform-api]-bundle-v2-{{ checksum "Gemfile.lock" }}
-            - [aid-platform-api]-bundle-v2-
+            - aid-platform-api-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - aid-platform-api-bundle-v2-
       - run: # Install Ruby dependencies
           name: Bundle Install
           command: bundle check --path vendor/bundle || bundle install --deployment
       # Store bundle cache for Ruby dependencies
       - save_cache:
-          key: [aid-platform-api]-bundle-v2-{{ checksum "Gemfile.lock" }}
+          key: aid-platform-api-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
       - run:
