@@ -70,9 +70,12 @@ class Api::V1::UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy user' do
-    assert_difference('User.count', -1) do
-      delete api_v1_user_url(@user),
-             headers: { Authorization: 'Bearer ' + JsonWebToken.encode(user_id: @user.id) }, as: :json
+    assert_difference('Request.count', -1) do
+      requests(:one).destroy
+      assert_difference('User.count', -1) do
+        delete api_v1_user_url(@user),
+               headers: { Authorization: 'Bearer ' + JsonWebToken.encode(user_id: @user.id) }, as: :json
+      end
     end
 
     assert_response 204
