@@ -327,63 +327,6 @@
           null
         ]
       },
-      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/api/v1/authentication_controller.rb": {
-        "lines": [
-          null,
-          1,
-          null,
-          1,
-          4,
-          null,
-          4,
-          2,
-          null,
-          null,
-          null,
-          null,
-          null,
-          2,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          4,
-          null,
-          null
-        ]
-      },
-      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/concerns/authentication.rb": {
-        "lines": [
-          null,
-          1,
-          1,
-          4,
-          4,
-          4,
-          null,
-          null,
-          null,
-          1,
-          4,
-          null,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null
-        ]
-      },
       "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/api/v1/users_controller.rb": {
         "lines": [
           null,
@@ -464,8 +407,65 @@
           null,
           null
         ]
+      },
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/api/v1/authentication_controller.rb": {
+        "lines": [
+          null,
+          1,
+          null,
+          1,
+          4,
+          null,
+          4,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          4,
+          null,
+          null
+        ]
+      },
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/concerns/authentication.rb": {
+        "lines": [
+          null,
+          1,
+          1,
+          4,
+          4,
+          4,
+          null,
+          null,
+          null,
+          1,
+          4,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1608433565
+    "timestamp": 1608434351
   }
 }
