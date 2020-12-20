@@ -32,7 +32,7 @@ jobs:
             - aid-platform-api-bundle-v2-
       - run: # Install Ruby dependencies
           name: Bundle Install
-          command: bundle config set path 'vendor/bundle' || bundle install
+          command: bundle install
       # Store bundle cache for Ruby dependencies
       - save_cache:
           key: aid-platform-api-bundle-v2-{{ checksum "Gemfile.lock" }}
