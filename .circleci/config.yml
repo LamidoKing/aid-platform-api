@@ -32,7 +32,7 @@ jobs:
             - aid-platform-api-bundle-v2-
       - run: # Install Ruby dependencies
           name: Bundle Install
-          command: bundle install
+          command: bundle config set production 'true' bundle install
       # Store bundle cache for Ruby dependencies
       - save_cache:
           key: aid-platform-api-bundle-v2-{{ checksum "Gemfile.lock" }}
@@ -47,9 +47,7 @@ jobs:
       - run:
           name: Run test in parallel
           command: bundle exec rake
-      - run:
-          name: Run lint
-          command: ruby/rubocop-check
+
 workflows:
   version: 2
   build_and_test:
