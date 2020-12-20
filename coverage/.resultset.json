@@ -1,6 +1,179 @@
 {
   "Minitest": {
     "coverage": {
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/config/environment.rb": {
+        "lines": [
+          null,
+          1,
+          null,
+          null,
+          1
+        ]
+      },
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/config/environments/test.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/config/initializers/application_controller_renderer.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/config/initializers/backtrace_silencers.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/config/initializers/cors.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/config/initializers/filter_parameter_logging.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1
+        ]
+      },
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/config/initializers/inflections.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/config/initializers/mime_types.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/config/initializers/wrap_parameters.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/config/routes.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
       "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/test/controllers/api/v1/authentication_controller_test.rb": {
         "lines": [
           1,
@@ -267,6 +440,29 @@
           null
         ]
       },
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/lib/json_web_token.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          7,
+          7,
+          null,
+          null,
+          1,
+          12,
+          null,
+          2,
+          null,
+          2,
+          null,
+          null
+        ]
+      },
       "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/application_controller.rb": {
         "lines": [
           null,
@@ -300,86 +496,6 @@
           null,
           null,
           null,
-          null,
-          null
-        ]
-      },
-      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/api/v1/authentication_controller.rb": {
-        "lines": [
-          null,
-          1,
-          null,
-          1,
-          4,
-          null,
-          4,
-          2,
-          null,
-          null,
-          null,
-          null,
-          null,
-          2,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          4,
-          null,
-          null
-        ]
-      },
-      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/concerns/authentication.rb": {
-        "lines": [
-          null,
-          1,
-          1,
-          4,
-          4,
-          4,
-          null,
-          null,
-          null,
-          1,
-          4,
-          null,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null
-        ]
-      },
-      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/lib/json_web_token.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          7,
-          7,
-          null,
-          null,
-          1,
-          12,
-          null,
-          2,
-          null,
-          2,
           null,
           null
         ]
@@ -464,8 +580,65 @@
           null,
           null
         ]
+      },
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/api/v1/authentication_controller.rb": {
+        "lines": [
+          null,
+          1,
+          null,
+          1,
+          4,
+          null,
+          4,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          4,
+          null,
+          null
+        ]
+      },
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/concerns/authentication.rb": {
+        "lines": [
+          null,
+          1,
+          1,
+          4,
+          4,
+          4,
+          null,
+          null,
+          null,
+          1,
+          4,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1608427464
+    "timestamp": 1608427807
   }
 }
