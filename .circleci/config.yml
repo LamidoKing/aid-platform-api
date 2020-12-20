@@ -43,7 +43,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Database setup
-          command: bundle exec rails db:schema:load --trace
+          command: bundle exec bin/rails db:schema:load --trace
       - run:
           name: Run test in parallel
           command: bundle exec rake
