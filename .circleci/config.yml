@@ -4,12 +4,54 @@ orbs:
 
 jobs:
   build:
+    parallelism: 1
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
-    executor: ruby/default
+      - image: cimg/ruby:2.7.1
+        environment: # environment variables for primary container
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          PGHOST: 127.0.0.1
+          PGUSER: postgres
+          RAILS_ENV: test
+      - image: circleci/postgres:11 # database image
+        environment: # environment variables for database, it is kind of obvious but it is important that they match with your test config in database.yml
+          POSTGRES_USER: lamido
+          POSTGRES_DB: aid_platform_api
+          POSTGRES_PASSWORD: lamido_aid_platform_api
     steps:
       - checkout
       - run:
           name: Which bundler?
           command: bundle -v
-      - ruby/bundle-install
+            # Restore bundle cache
+      # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+      - restore_cache:
+          keys:
+            - aid-platform-api-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - aid-platform-api-bundle-v2-
+      - run: # Install Ruby dependencies
+          name: Bundle Install
+          command: bundle config set path 'vendor/bundle' || bundle install
+      # Store bundle cache for Ruby dependencies
+      - save_cache:
+          key: aid-platform-api-bundle-v2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Database setup
+          command: bundle exec bin/rails db:schema:load --trace
+      - run:
+          name: Run test in parallel
+          command: bundle exec rake
+      - run:
+          name: Run lint
+          command: ruby/rubocop-check
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
