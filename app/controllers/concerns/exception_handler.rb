@@ -14,10 +14,13 @@ module ExceptionHandler
         message: 'Access denied!. Token has expired.'
       }, status: :unauthorized
     end
-    rescue_from ActiveRecord::RecordNotFound do |_error|
+    rescue_from ActiveRecord::RecordNotFound do |e|
       render json: {
-        message: 'Not Found'
+        message: e.message
       }, status: :not_found
+    end
+    rescue_from ActiveRecord::RecordInvalid do |e|
+      json_response({ message: e.message }, :unprocessable_entity)
     end
   end
 end

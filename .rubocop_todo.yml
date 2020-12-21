@@ -193,3 +193,5 @@ Style/NumericLiterals:
 # URISchemes: http, https
 Layout/LineLength:
   Max: 198
+  Exclude:
+    - 'db/seeds.rb'
