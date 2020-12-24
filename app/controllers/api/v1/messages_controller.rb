@@ -1,3 +1,4 @@
+# Message Controller
 class Api::V1::MessagesController < ApplicationController
   before_action :authorized, only: [:show, :create, :update, :destroy, :index]
   before_action :set_message, only: [:show, :update, :destroy]

@@ -408,40 +408,6 @@
           null
         ]
       },
-      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/concerns/authorization.rb": {
-        "lines": [
-          null,
-          1,
-          1,
-          36,
-          null,
-          23,
-          23,
-          null,
-          null,
-          1,
-          null,
-          1,
-          109,
-          null,
-          null,
-          1,
-          59,
-          null,
-          50,
-          50,
-          null,
-          null,
-          1,
-          29,
-          null,
-          null,
-          1,
-          29,
-          null,
-          null
-        ]
-      },
       "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/test/models/message_test.rb": {
         "lines": [
           1,
@@ -635,114 +601,6 @@
           null
         ]
       },
-      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/application_controller.rb": {
-        "lines": [
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/concerns/response.rb": {
-        "lines": [
-          null,
-          1,
-          1,
-          13,
-          null,
-          null
-        ]
-      },
-      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/concerns/exception_handler.rb": {
-        "lines": [
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          2,
-          null,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/api/v1/authentication_controller.rb": {
-        "lines": [
-          null,
-          1,
-          null,
-          1,
-          4,
-          null,
-          4,
-          2,
-          null,
-          null,
-          null,
-          null,
-          null,
-          2,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          4,
-          null,
-          null
-        ]
-      },
-      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/concerns/authentication.rb": {
-        "lines": [
-          null,
-          1,
-          1,
-          4,
-          4,
-          4,
-          null,
-          null,
-          null,
-          1,
-          4,
-          null,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null
-        ]
-      },
       "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/lib/json_web_token.rb": {
         "lines": [
           1,
@@ -849,6 +707,7 @@
       },
       "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/api/v1/messages_controller.rb": {
         "lines": [
+          null,
           1,
           1,
           1,
@@ -901,6 +760,7 @@
       },
       "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/serializers/message_serializer.rb": {
         "lines": [
+          null,
           1,
           1,
           null,
@@ -982,6 +842,7 @@
           1,
           null,
           null,
+          null,
           1,
           1,
           null,
@@ -1026,8 +887,65 @@
           null,
           null
         ]
+      },
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/api/v1/authentication_controller.rb": {
+        "lines": [
+          null,
+          1,
+          null,
+          1,
+          4,
+          null,
+          4,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          4,
+          null,
+          null
+        ]
+      },
+      "/home/phantom/Workspace/OC/Projects/P8/aid-platform-api/app/controllers/concerns/authentication.rb": {
+        "lines": [
+          null,
+          1,
+          1,
+          4,
+          4,
+          4,
+          null,
+          null,
+          null,
+          1,
+          4,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1608771749
+    "timestamp": 1608772658
   }
 }

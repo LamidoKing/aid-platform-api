@@ -1,3 +1,4 @@
+# Message Serializer
 class MessageSerializer < ActiveModel::Serializer
   attributes :id, :message
 

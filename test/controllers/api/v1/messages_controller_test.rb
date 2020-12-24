@@ -36,7 +36,7 @@ class Api::V1::MessagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should show message' do
-    get api_v1_message_url(@message),  headers: jwt(users(:one)), as: :json
+    get api_v1_message_url(@message), headers: jwt(users(:one)), as: :json
     assert_response :success
   end
 

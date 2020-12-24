@@ -16,6 +16,7 @@ class Api::V1::RequestsController < ApplicationController
     json_response(@request)
   end
 
+  # GET /api/v1/requests/volunters/1
   def volunters
     @volunters =  @request.message.where.not(sender: @current_user).map(&:sender).uniq
 
