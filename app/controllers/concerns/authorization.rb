@@ -4,11 +4,7 @@ module Authorization
     return unless decoded_token
 
     user_id = decoded_token[0]['user_id']
-    @current_user = begin
-                      User.find_by(id: user_id)
-                    rescue StandardError
-                      ActiveRecord::RecordNotFound
-                    end
+    @current_user = User.find_by(id: user_id)
   end
 
   protected

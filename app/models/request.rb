@@ -1,6 +1,7 @@
 # Request Model
 class Request < ApplicationRecord
   belongs_to :user
+  has_many :message, class_name: 'Message', foreign_key: 'request', dependent: :destroy
 
   validates :title, :latitude, :longitude, presence: true
 

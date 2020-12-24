@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Message.delete_all
 Request.delete_all
 User.delete_all
 ActiveStorage::Attachment.all.each(&:purge)
@@ -217,3 +218,30 @@ request14 = Request.create(
   status: 'Unfulfill'
 )
 puts(request14.title)
+
+message1 = Message.create!(
+  sender_id: user2.id,
+  receiver_id: user1.id,
+  request_id: request1.id,
+  message: 'hello'
+)
+
+puts(message1.message)
+
+message2 = Message.create!(
+  sender_id: user1.id,
+  receiver_id: user2.id,
+  request_id: request1.id,
+  message: 'hi'
+)
+
+puts(message2.message)
+
+message3 = Message.create!(
+  sender_id: user3.id,
+  receiver_id: user1.id,
+  request_id: request1.id,
+  message: 'hello'
+)
+
+puts(message3.message)

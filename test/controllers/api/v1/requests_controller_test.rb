@@ -40,6 +40,17 @@ class Api::V1::RequestsControllerTest < ActionDispatch::IntegrationTest
     assert_response :unauthorized
   end
 
+  test 'should not create request without params' do
+    assert_no_difference('Request.count') do
+      post api_v1_requests_url, params: { request: {} }, headers: jwt(users(:one)), as: :json
+    end
+
+    json_response = JSON.parse(response.body)
+    assert_not_nil json_response['message']
+
+    assert_response :unprocessable_entity
+  end
+
   test 'should show request' do
     get api_v1_request_url(@request), as: :json
     assert_response :success
@@ -72,6 +83,9 @@ class Api::V1::RequestsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_response 204
+
+    get api_v1_request_url(@request), as: :json
+    assert_response :not_found
   end
 
   test 'should not destroy request without valid token' do
@@ -88,6 +102,19 @@ class Api::V1::RequestsControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference('Request.count') do
       delete api_v1_request_url(@request), headers: jwt(users(:two)), as: :json
     end
+    json_response = JSON.parse(response.body)
+    assert_not_nil json_response['message']
+
+    assert_response :unauthorized
+  end
+
+  test 'should view volunters request' do
+    get "/api/v1/requests/volunters/#{@request.id}", headers: jwt(users(:one)), as: :json
+    assert_response :success
+  end
+
+  test 'should not view volunters for the request for Unauthorize request' do
+    get "/api/v1/requests/volunters/#{@request.id}", as: :json
     json_response = JSON.parse(response.body)
     assert_not_nil json_response['message']
 
