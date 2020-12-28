@@ -1,11 +1,15 @@
-require "test_helper"
+require 'test_helper'
 
 class ApplicationCable::ConnectionTest < ActionCable::Connection::TestCase
-  # test "connects with cookies" do
-  #   cookies.signed[:user_id] = 42
-  #
-  #   connect
-  #
-  #   assert_equal connection.user_id, "42"
-  # end
+  test 'connect authorrize user' do
+    connect "/cable?user=#{users(:one).id}"
+
+    assert_equal connection.current_user.id, users(:one).id
+  end
+
+  test 'reject connection for unathorize user' do
+    assert_reject_connection do
+      connect
+    end
+  end
 end
