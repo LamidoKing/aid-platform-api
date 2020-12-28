@@ -11,4 +11,5 @@ Rails.application.routes.draw do
       get 'requests/volunters/:id', to: 'requests#volunters'
     end
   end
+  mount ActionCable.server => '/cable'
 end

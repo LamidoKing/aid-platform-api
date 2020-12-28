@@ -19,6 +19,11 @@ class Api::V1::MessagesController < ApplicationController
   def create
     @sender = @current_user.id
     @message = Message.create!(message_params.merge(sender_id: @sender))
+    @chat_id = [@sender, message_params[:receiver_id]].sort.join('')
+    @data = ActiveModelSerializers::Adapter::Json.new(
+      MessageSerializer.new(@message)
+    ).serializable_hash
+    ActionCable.server.broadcast("message_channel_#{@chat_id}", @data)
 
     json_response(@message, :created)
   end
