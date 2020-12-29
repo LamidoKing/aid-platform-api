@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Volunter.delete_all
 Message.delete_all
 Request.delete_all
 User.delete_all
@@ -218,6 +219,18 @@ request14 = Request.create(
   status: 'Unfulfill'
 )
 puts(request14.title)
+
+volunter1 = Volunter.create!(
+  request_id: request1.id,
+  user_id: user2.id
+)
+puts("volunter #{volunter1.id} Success")
+
+volunter2 = Volunter.create!(
+  request_id: request1.id,
+  user_id: user3.id
+)
+puts("volunter #{volunter2.id} Success")
 
 message1 = Message.create!(
   sender_id: user2.id,

@@ -120,4 +120,9 @@ class Api::V1::RequestsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :unauthorized
   end
+
+  test 'should view Request that user volunters to' do
+    get '/api/v1/requests_volunter_by_me/', headers: jwt(users(:one)), as: :json
+    assert_response :success
+  end
 end

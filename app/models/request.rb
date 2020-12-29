@@ -2,6 +2,7 @@
 class Request < ApplicationRecord
   belongs_to :user
   has_many :message, class_name: 'Message', foreign_key: 'request', dependent: :destroy
+  has_many :volunters, dependent: :destroy
 
   validates :title, :latitude, :longitude, presence: true
 
