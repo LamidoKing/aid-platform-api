@@ -1,6 +1,6 @@
 # Request Controller
 class Api::V1::RequestsController < ApplicationController
-  before_action :authorized, only: [:create, :update, :destroy, :volunters]
+  before_action :authorized, only: [:create, :update, :destroy, :volunters, :volunter_by_me]
   before_action :set_request, only: [:show, :update, :destroy, :volunters]
   before_action :require_owner, only: [:update, :destroy]
 
@@ -11,6 +11,12 @@ class Api::V1::RequestsController < ApplicationController
     json_response(@requests)
   end
 
+  # GET /api/v1/requests_volunter_by_me Requests i volunter
+  def volunter_by_me
+    @requests = @current_user.volunters.map(&:request)
+    json_response(@requests)
+  end
+
   # GET /api/v1/requests/1
   def show
     json_response(@request)
@@ -18,7 +24,7 @@ class Api::V1::RequestsController < ApplicationController
 
   # GET /api/v1/requests/volunters/1
   def volunters
-    @volunters =  @request.message.where.not(sender: @current_user).map(&:sender).uniq
+    @volunters =  @request.volunters
 
     json_response(@volunters)
   end

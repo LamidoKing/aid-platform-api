@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_201_221_212_556) do
+ActiveRecord::Schema.define(version: 20_201_228_172_327) do
   create_table 'active_storage_attachments', force: :cascade do |t|
     t.string 'name', null: false
     t.string 'record_type', null: false
@@ -68,9 +68,20 @@ ActiveRecord::Schema.define(version: 20_201_221_212_556) do
     t.index ['email'], name: 'index_users_on_email', unique: true
   end
 
+  create_table 'volunters', force: :cascade do |t|
+    t.integer 'user_id', null: false
+    t.integer 'request_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['request_id'], name: 'index_volunters_on_request_id'
+    t.index ['user_id'], name: 'index_volunters_on_user_id'
+  end
+
   add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
   add_foreign_key 'messages', 'requests'
   add_foreign_key 'messages', 'users', column: 'receiver_id'
   add_foreign_key 'messages', 'users', column: 'sender_id'
   add_foreign_key 'requests', 'users'
+  add_foreign_key 'volunters', 'requests'
+  add_foreign_key 'volunters', 'users'
 end
