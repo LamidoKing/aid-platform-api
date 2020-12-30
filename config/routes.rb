@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # Api definition
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :users, except: [:create]
+      resources :users, except: [:create, :index]
       resources :requests
       resources :messages
       resources :fulfill_request, only: [:update]
