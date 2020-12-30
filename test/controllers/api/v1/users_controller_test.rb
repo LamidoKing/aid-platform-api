@@ -14,10 +14,10 @@ class Api::V1::UsersControllerTest < ActionDispatch::IntegrationTest
     }
   end
 
-  test 'should get all user' do
-    get api_v1_users_url, as: :json
-    assert_response :success
-  end
+  # test 'should get all user' do
+  #   get api_v1_users_url, as: :json
+  #   assert_response :success
+  # end
 
   test 'should create user' do
     assert_difference('User.count') do
