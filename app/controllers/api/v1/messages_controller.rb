@@ -2,6 +2,7 @@
 class Api::V1::MessagesController < ApplicationController
   before_action :authorized, only: [:show, :create, :update, :destroy, :index]
   before_action :set_message, only: [:show, :update, :destroy]
+  before_action :volunter, only: [:create]
 
   # GET /api/v1/messages
   def index
@@ -50,5 +51,20 @@ class Api::V1::MessagesController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def message_params
     params.fetch(:message, {}).permit(:receiver_id, :request_id, :message)
+  end
+
+  # volunter to request when user send message without volunter first
+  def volunter
+    @request = Request.find_by(id: message_params[:request_id])
+    @is_require_owner = @request.user == @current_user
+
+    return unless @is_require_owner == false
+
+    is_user_volunted = @request.volunters.any? { |volunter| volunter.user == @current_user }
+
+    return unless is_user_volunted == false
+
+    @volunter = @current_user.volunters.create(request_id: message_params[:request_id])
+    VolunterNotifierMailer.with(request: @volunter).volunted_to_request.deliver_now
   end
 end

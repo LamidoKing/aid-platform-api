@@ -2,6 +2,7 @@
 class Api::V1::VoluntersController < ApplicationController
   before_action :authorized
   before_action :set_volunter, only: [:show, :update, :destroy]
+  before_action :check, only: [:create]
 
   # GET /api/v1/volunters
   def index
@@ -17,13 +18,12 @@ class Api::V1::VoluntersController < ApplicationController
 
   # POST /api/v1/volunters
   def create
-    is_user_request = Request.find_by(id: volunter_params[:request_id])
-
-    if is_user_request.user_id == @current_user.id
-      json_response({ message: 'You cannot Volunter to your Request' }, :unprocessable_entity)
+    if @is_user_request || @is_user_volunted == true
+      json_response({ message: 'You cannot Volunter to your Request or You already Volunted to this Request' }, :unprocessable_entity)
 
     else
       @volunter = @current_user.volunters.create!(volunter_params)
+      VolunterNotifierMailer.with(request: @volunter).volunted_to_request.deliver_now
 
       json_response(@volunter, :created)
     end
@@ -51,5 +51,11 @@ class Api::V1::VoluntersController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def volunter_params
     params.fetch(:volunter, {}).permit(:request_id)
+  end
+
+  def check
+    @request = Request.find_by(id: volunter_params[:request_id])
+    @is_user_request = @request.user_id == @current_user.id
+    @is_user_volunted = @request.volunters.any? { |volunter| volunter.user == @current_user }
   end
 end
