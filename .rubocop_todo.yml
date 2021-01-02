@@ -94,6 +94,8 @@ Metrics/MethodLength:
 Metrics/BlockLength:
   Exclude:
     - 'db/schema.rb'
+    - 'config/environments/production.rb'
+    - 'config/environments/development.rb'
 
 # Offense count: 1
 # Configuration parameters: IgnoredMethods.

@@ -11,6 +11,14 @@ class Api::V1::MessagesControllerTest < ActionDispatch::IntegrationTest
         message: 'MyText'
       }
     }
+    @new_message2 = {
+      message: {
+        sender_id: users(:two).id,
+        receiver_id: users(:one).id,
+        request_id: requests(:one).id,
+        message: 'MyText'
+      }
+    }
   end
 
   test 'should get index' do
@@ -18,9 +26,17 @@ class Api::V1::MessagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should create message' do
+  test 'should create message for owner of the request without volunter to the request' do
     assert_difference('Message.count') do
       post api_v1_messages_url, params: @new_message, headers: jwt(users(:one)), as: :json
+    end
+
+    assert_response 201
+  end
+
+  test 'should create message and volunter to request' do
+    assert_difference('Message.count') do
+      post api_v1_messages_url, params: @new_message2, headers: jwt(users(:two)), as: :json
     end
 
     assert_response 201
