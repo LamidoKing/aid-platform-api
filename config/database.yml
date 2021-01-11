@@ -80,7 +80,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: aid_platform_api_production
-  username: aid_platform_api
-  password: <%= ENV['AID_PLATFORM_API_DATABASE_PASSWORD'] %>
+  <<: 
+    adapter: postgresql
+    encoding: unicode
+    url: postgres://weysxeqsbmsegv:1626012fdb1b818b4325727b3d29bf37b9f3f36692ad6d1bf5c6f169c3af3b1b@ec2-3-211-149-196.compute-1.amazonaws.com:5432/d7jbrc2pqhv0s8?pool=5
