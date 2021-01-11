@@ -36,7 +36,7 @@ gem 'rack-cors'
 gem 'solargraph', group: :development
 gem 'rubocop', group: :development
 
-gem 'rusky', group: :development
+gem 'rusky'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
