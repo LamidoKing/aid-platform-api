@@ -219,9 +219,6 @@ GEM
     rubocop-ast (0.8.0)
       parser (>= 2.7.1.5)
     ruby-progressbar (1.10.1)
-    rusky (0.2.5)
-      rake
-      thor
     simplecov (0.19.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -294,7 +291,6 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.3)
   redis (~> 4.0)
   rubocop
-  rusky
   simplecov
   solargraph
   spring
