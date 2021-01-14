@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       post 'auth/login', to: 'authentication#login'
       get 'requests/volunters/:id', to: 'requests#volunters'
       get 'requests_volunter_by_me', to: 'requests#volunter_by_me'
+      put 'requests/republish/:id', to: 'requests#republish'
+      patch 'requests/republish/:id', to: 'requests#republish'
     end
   end
   mount ActionCable.server => '/cable'

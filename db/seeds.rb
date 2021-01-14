@@ -52,6 +52,26 @@ user4 = User.create(
 user4.govnt_id.attach(io: File.open(Rails.root.join('seedFiles/govnt_id.png')), filename: 'govnt_id.png', content_type: 'image/png')
 puts(user4.first_name)
 
+user5 = User.create(
+  first_name: 'Abubakar',
+  last_name: 'Ahmed',
+  email: 'Abubakar@gmail.com',
+  status: 'offline',
+  password: 'abubakar'
+)
+user5.govnt_id.attach(io: File.open(Rails.root.join('seedFiles/govnt_id.png')), filename: 'govnt_id.png', content_type: 'image/png')
+puts(user5.first_name)
+
+user6 = User.create(
+  first_name: 'Hanna',
+  last_name: 'james',
+  email: 'Hanna@gmail.com',
+  status: 'offline',
+  password: 'hanna'
+)
+user6.govnt_id.attach(io: File.open(Rails.root.join('seedFiles/govnt_id.png')), filename: 'govnt_id.png', content_type: 'image/png')
+puts(user6.first_name)
+
 request1 = Request.create(
   user_id: user1.id,
   title: 'First Request',
@@ -220,6 +240,18 @@ request14 = Request.create(
 )
 puts(request14.title)
 
+request15 = Request.create(
+  user_id: user1.id,
+  title: 'fiveteenth Request',
+  description:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill',
+  type_of_request: 'Material Need',
+  latitude: 12.14674581,
+  longitude: 8.459472656250002,
+  status: 'Unfulfill'
+)
+puts(request15.title)
+
 volunter1 = Volunter.create!(
   request_id: request1.id,
   user_id: user2.id
@@ -231,6 +263,36 @@ volunter2 = Volunter.create!(
   user_id: user3.id
 )
 puts("volunter #{volunter2.id} Success")
+
+volunter3 = Volunter.create!(
+  request_id: request15.id,
+  user_id: user2.id
+)
+puts("volunter #{volunter3.id} Success")
+
+volunter4 = Volunter.create!(
+  request_id: request15.id,
+  user_id: user3.id
+)
+puts("volunter #{volunter4.id} Success")
+
+volunter5 = Volunter.create!(
+  request_id: request15.id,
+  user_id: user4.id
+)
+puts("volunter #{volunter5.id} Success")
+
+volunter6 = Volunter.create!(
+  request_id: request15.id,
+  user_id: user5.id
+)
+puts("volunter #{volunter6.id} Success")
+
+volunter7 = Volunter.create!(
+  request_id: request15.id,
+  user_id: user6.id
+)
+puts("volunter #{volunter7.id} Success")
 
 message1 = Message.create!(
   sender_id: user2.id,

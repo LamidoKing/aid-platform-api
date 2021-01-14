@@ -1,8 +1,8 @@
 # Request Controller
 class Api::V1::RequestsController < ApplicationController
-  before_action :authorized, only: [:create, :update, :destroy, :volunters, :volunter_by_me]
-  before_action :set_request, only: [:show, :update, :destroy, :volunters]
-  before_action :require_owner, only: [:update, :destroy]
+  before_action :authorized, only: [:create, :update, :destroy, :volunters, :volunter_by_me, :republish]
+  before_action :set_request, only: [:show, :update, :destroy, :volunters, :republish]
+  before_action :require_owner, only: [:update, :destroy, :republish]
 
   # GET /api/v1/requests
   def index
@@ -47,6 +47,19 @@ class Api::V1::RequestsController < ApplicationController
     @request.destroy
   end
 
+  # PATCH/PUT /api/v1/requests/republish/1
+  def republish
+    @volunters = @request.volunters
+
+    found = @volunters.select { |v| Time.new - v.created_at >= 1.day }
+    if found.length >= 1 && @request.status == 'Unfulfill'
+      @request.update!(request_params)
+      json_response(@volunters)
+    else
+      json_response({ message: 'Request cant not be republish' }, :unauthorized)
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -56,7 +69,7 @@ class Api::V1::RequestsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def request_params
-    params.fetch(:request, {}).permit(:title, :description, :status, :type_of_request, :latitude, :longitude)
+    params.fetch(:request, {}).permit(:title, :description, :status, :type_of_request, :latitude, :longitude, :republished)
   end
 
   # Only allow owner
