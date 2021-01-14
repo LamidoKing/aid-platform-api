@@ -14,6 +14,7 @@ class Api::V1::RequestsControllerTest < ActionDispatch::IntegrationTest
         status: 'Unfulfill'
       }
     }
+    @request2 = requests(:two)
   end
 
   test 'should get index' do
@@ -124,5 +125,26 @@ class Api::V1::RequestsControllerTest < ActionDispatch::IntegrationTest
   test 'should view Request that user volunters to' do
     get '/api/v1/requests_volunter_by_me/', headers: jwt(users(:one)), as: :json
     assert_response :success
+  end
+
+  test 'should republish request' do
+    patch "/api/v1/requests/republish/#{@request.id}", params: { request: { republished: 'true' } }, headers: jwt(users(:one)), as: :json
+    assert_response 200
+  end
+
+  test 'should not republish request without valid token' do
+    patch "/api/v1/requests/republish/#{@request.id}", params: { request: { republished: 'true' } }, as: :json
+    json_response = JSON.parse(response.body)
+    assert_not_nil json_response['message']
+
+    assert_response :unauthorized
+  end
+
+  test 'should not republish request without valid owner' do
+    patch "/api/v1/requests/republish/#{@request2.id}", params: { request: { republished: 'true' } }, headers: jwt(users(:two)), as: :json
+    json_response = JSON.parse(response.body)
+    assert_not_nil json_response['message']
+
+    assert_response :unauthorized
   end
 end

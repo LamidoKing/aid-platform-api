@@ -12,8 +12,6 @@ class VolunterNotifierMailerTest < ActionMailer::TestCase
     assert_equal ['notifications@aidplatform.com'], @email.from
     assert_equal [users(:one).email], @email.to
     assert_equal 'New Volunteer', @email.subject
-    assert_match users(:one).first_name, @email.text_part.body.encoded
-    assert_match users(:one).first_name, @email.html_part.body.encoded
     assert_match requests(:one).title, @email.html_part.body.encoded
   end
 end

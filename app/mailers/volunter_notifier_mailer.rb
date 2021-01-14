@@ -3,7 +3,8 @@ class VolunterNotifierMailer < ApplicationMailer
   default from: 'notifications@aidplatform.com'
   def volunted_to_request
     @request = params[:request].request
-    @user = params[:request].user
+    @user = params[:request].request.user
+    @current_user = params[:user]
     mail(to: @user.email,
          subject: 'New Volunteer') do |format|
            format.html

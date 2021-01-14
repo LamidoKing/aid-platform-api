@@ -19,4 +19,10 @@ class Request < ApplicationRecord
     in: ['One Time Request', 'Material Need'],
     message: '%<value>s% is not a valid request type'
   }, presence: true
+
+  after_initialize :init
+
+  def init
+    self.republished ||= 'false'
+  end
 end

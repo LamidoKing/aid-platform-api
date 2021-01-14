@@ -23,7 +23,7 @@ class Api::V1::VoluntersController < ApplicationController
 
     else
       @volunter = @current_user.volunters.create!(volunter_params)
-      VolunterNotifierMailer.with(request: @volunter).volunted_to_request.deliver_now
+      VolunterNotifierMailer.with(request: @volunter, user: @current_user).volunted_to_request.deliver_now
 
       json_response(@volunter, :created)
     end
