@@ -12,6 +12,16 @@ class Api::V1::UsersControllerTest < ActionDispatch::IntegrationTest
         password: 'testPassword'
       }
     }
+    @govnt_id = fixture_file_upload('files/govnt_id.pdf', 'application/pdf')
+    @user_new = {
+      user: {
+        first_name: 'testName',
+        last_name: 'testLastName',
+        email: 'test@test.com',
+        password: 'testPassword',
+        govnt_id: @govnt_id
+      }
+    }
   end
 
   # test 'should get all user' do
@@ -21,7 +31,7 @@ class Api::V1::UsersControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create user' do
     assert_difference('User.count') do
-      post api_v1_auth_signup_url, params: @new_user, as: :json
+      post api_v1_auth_signup_url, params: @user_new, as: :json
     end
 
     assert_response 201

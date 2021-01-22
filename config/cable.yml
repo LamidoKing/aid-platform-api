@@ -6,7 +6,7 @@ test:
 
 production:
   adapter: redis
-  url: <%= Rails.application.credentials.redis[:url] %>
-  port: <%= Rails.application.credentials.redis[:port] %>
-  password: <%= Rails.application.credentials.redis[:password] %>
+  url: <%= ENV['REDIS_URL'] %>
+  port: <%= ENV['REDIS_PORT'] %>
+  password: <%= ENV['REDIS_PASSWORD'] %>
   channel_prefix: aid_platform_api_production
